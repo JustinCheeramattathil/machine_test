@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:machine_test/utils/colors.dart';
@@ -11,6 +12,38 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    void _showAlertDialog(BuildContext context) {
+      showCupertinoModalPopup<void>(
+        context: context,
+        builder: (BuildContext context) => CupertinoAlertDialog(
+          title: const CircleAvatar(
+            backgroundImage:NetworkImage('') ,
+          ),
+          content: const Text(
+            'Justin Thomas',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          actions: <CupertinoDialogAction>[
+            CupertinoDialogAction(
+              isDefaultAction: true,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancel'),
+            ),
+            CupertinoDialogAction(
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Done'),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kbackgroundcolor,
       appBar: AppBar(
@@ -27,9 +60,6 @@ class HomeScreen extends StatelessWidget {
         child: Stack(
           children: [
             Observer(builder: (_) {
-              // if (viewModel.isLoading) {
-              //   return const Center(child: CircularProgressIndicator());
-              // }
               return GridView.builder(
                 itemCount: viewModel.users.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -39,10 +69,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   final user = viewModel.users[index];
-                  return CustomUserCard(
-                    onTap: () {},
-                    imageUrl: user.imageUrl,
-                    text: user.first+'  '+user.last,
+                  return InkWell(
+                    onTap: () => _showAlertDialog(context),
+                    child: CustomUserCard(
+                      imageUrl: user.imageUrl,
+                      text: '${user.first} ${user.last}',
+                    ),
                   );
                 },
               );
@@ -56,14 +88,14 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   FloatingActionButton(
                     onPressed: () {},
-                    child: Icon(Icons.people),
                     backgroundColor: kbluecolor,
+                    child: const Icon(Icons.people),
                   ),
                   const SizedBox(height: 16),
                   FloatingActionButton(
                     onPressed: () {},
-                    child: Icon(Icons.currency_exchange_outlined),
                     backgroundColor: kbluecolor,
+                    child: const Icon(Icons.currency_exchange_outlined),
                   ),
                 ],
               ),

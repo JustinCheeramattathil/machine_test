@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:machine_test/utils/colors.dart';
 
 class CustomUserCard extends StatelessWidget {
-  final Function? onTap;
   final String imageUrl;
   final String text;
-  const CustomUserCard(
-      {super.key,
-      required this.onTap,
-      required this.imageUrl,
-      required this.text});
+  const CustomUserCard({super.key, required this.imageUrl, required this.text});
 
   @override
   Widget build(BuildContext context) {

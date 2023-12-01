@@ -23,11 +23,13 @@ class UserViewModel with Store {
       final fetchedUsers = await _userRepository.fetchUsers();
       users.clear();
       users.addAll(fetchedUsers);
-      isLoading = false;
+      
     } on Exception catch (error) {
       log('Error fetching users: $error');
     } finally {
       isLoading = false;
     }
   }
+
+  
 }

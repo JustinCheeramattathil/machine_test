@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:machine_test/models/user_model.dart';
 import 'package:machine_test/utils/colors.dart';
 import 'package:machine_test/view_models/user_viewmodel.dart';
+import 'package:machine_test/views/home_screen/widgets/user_popup.dart';
+import 'package:machine_test/views/home_screen/widgets/visitor_popup.dart';
 import 'package:machine_test/views/home_screen/widgets/custom_navigationbar.dart';
 import 'package:machine_test/views/home_screen/widgets/custom_user_card.dart';
 
@@ -12,36 +14,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: no_leading_underscores_for_local_identifiers
-    void _showAlertDialog(BuildContext context) {
-      showCupertinoModalPopup<void>(
-        context: context,
-        builder: (BuildContext context) => CupertinoAlertDialog(
-          title: const CircleAvatar(
-            backgroundImage:NetworkImage('') ,
-          ),
-          content: const Text(
-            'Justin Thomas',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          actions: <CupertinoDialogAction>[
-            CupertinoDialogAction(
-              isDefaultAction: true,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Cancel'),
-            ),
-            CupertinoDialogAction(
-              isDestructiveAction: true,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Done'),
-            ),
-          ],
-        ),
-      );
+    void _showAlertDialog(BuildContext context, User user) {
+      CustomUserDialog.showAlertDialog(
+          context, user); // Call the dialog method from the separate class
+    }
+
+    void _showDialog(BuildContext context) {
+      CustomVisitorDialog.showDialog(
+          context); // Call the dialog method from the separate class
     }
 
     return Scaffold(
@@ -70,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final user = viewModel.users[index];
                   return InkWell(
-                    onTap: () => _showAlertDialog(context),
+                    onTap: () => _showAlertDialog(context, user),
                     child: CustomUserCard(
                       imageUrl: user.imageUrl,
                       text: '${user.first} ${user.last}',
@@ -87,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () => _showDialog(context),
                     backgroundColor: kbluecolor,
                     child: const Icon(Icons.people),
                   ),

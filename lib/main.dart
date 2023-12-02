@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:machine_test/utils/colors.dart';
 import 'package:machine_test/view_models/user_viewmodel.dart';
 import 'package:machine_test/views/home_screen/home_screen.dart';
 import 'repository/user_repository.dart';
@@ -14,7 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Machine test',
+      theme: ThemeData(
+        // Set overall brightness to dark
+        // Customize other properties as needed
+        // For example, to set the primary color to black, you can use:
+        primaryColor: kblackcolor,
+      ),
       home: HomeScreen(viewModel: UserViewModel(UserRepository(Dio()))),
     );
   }

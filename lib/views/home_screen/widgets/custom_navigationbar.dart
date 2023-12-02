@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:machine_test/utils/colors.dart';
 import 'package:machine_test/views/home_screen/widgets/alphabet_card.dart';
 
 class CustomNavigationBar extends StatelessWidget {

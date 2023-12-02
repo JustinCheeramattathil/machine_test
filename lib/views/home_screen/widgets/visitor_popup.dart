@@ -12,9 +12,9 @@ class CustomVisitorDialog {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-          const Text(
+            const Text(
               'Enter Visitor Details',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             const SizedBox(height: 16),
             Column(
@@ -22,9 +22,13 @@ class CustomVisitorDialog {
                 const SizedBox(height: 16),
                 CupertinoTextField(
                   controller: visitorcontroller,
+                  placeholder: 'Enter Visitor Name',
                   prefix: const Padding(
                       padding: EdgeInsets.only(left: 10),
-                      child: Icon(Icons.person)),
+                      child: Icon(
+                        Icons.person,
+                        color: kgreycolor,
+                      )),
                   keyboardType: TextInputType.text,
                   decoration: BoxDecoration(
                     border: Border.all(color: kgreycolor),
@@ -34,9 +38,13 @@ class CustomVisitorDialog {
                 const SizedBox(height: 16),
                 CupertinoTextField(
                   controller: sponsorcontroller,
+                  placeholder: 'Enter Sponser Name',
                   prefix: const Padding(
                       padding: EdgeInsets.only(left: 10),
-                      child: Icon(Icons.person)),
+                      child: Icon(
+                        Icons.person,
+                        color: kgreycolor,
+                      )),
                   keyboardType: TextInputType.text,
                   decoration: BoxDecoration(
                     border: Border.all(color: kgreycolor),
@@ -53,7 +61,7 @@ class CustomVisitorDialog {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('Cancel', style: TextStyle(color: kbluecolor)),
+            child: const Text('Cancel'),
           ),
           CupertinoDialogAction(
             isDestructiveAction: true,
@@ -61,7 +69,7 @@ class CustomVisitorDialog {
               Navigator.pop(context);
             },
             child: const Text(
-              'Done',
+              'Save',
               style: TextStyle(color: kbluecolor),
             ),
           ),

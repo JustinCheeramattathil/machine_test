@@ -1,12 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:machine_test/models/user_model.dart';
 import 'package:machine_test/utils/colors.dart';
 import 'package:machine_test/view_models/user_viewmodel.dart';
+import 'package:machine_test/views/home_screen/widgets/action_buttons.dart';
 import 'package:machine_test/views/home_screen/widgets/user_popup.dart';
 import 'package:machine_test/views/home_screen/widgets/visitor_popup.dart';
 import 'package:machine_test/views/home_screen/widgets/custom_navigationbar.dart';
 import 'package:machine_test/views/home_screen/widgets/custom_user_card.dart';
+import 'package:machine_test/views/payment_screen/payment_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final UserViewModel viewModel;
@@ -16,12 +19,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     void _showAlertDialog(BuildContext context, User user) {
       CustomUserDialog.showAlertDialog(
-          context, user); // Call the dialog method from the separate class
+          context, user); // Call the visitor popup from the separate class
     }
 
     void _showDialog(BuildContext context) {
       CustomVisitorDialog.showDialog(
-          context); // Call the dialog method from the separate class
+          context); // Call the sponsor popup from the separate class
     }
 
     return Scaffold(
@@ -66,16 +69,28 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  FloatingActionButton(
-                    onPressed: () => _showDialog(context),
-                    backgroundColor: kbluecolor,
-                    child: const Icon(Icons.people),
+                  ActionButton(
+                    icon: const Icon(
+                      Icons.people,
+                      color: kwhitecolor,
+                    ),
+                    onTap: () => _showDialog(context),
                   ),
                   const SizedBox(height: 16),
-                  FloatingActionButton(
-                    onPressed: () {},
-                    backgroundColor: kbluecolor,
-                    child: const Icon(Icons.currency_exchange_outlined),
+                  ActionButton(
+                    icon: const Icon(
+                      Icons.currency_exchange_sharp,
+                      color: kwhitecolor,
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => PaymentScreen(
+                                  viewModel: viewModel,
+                                )),
+                      );
+                    },
                   ),
                 ],
               ),

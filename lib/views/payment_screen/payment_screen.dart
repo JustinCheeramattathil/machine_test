@@ -70,12 +70,7 @@ class PaymentScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            
-          },
-          child: const Icon(Icons.share)),
-          bottomNavigationBar: BottomField(),
+      bottomNavigationBar: BottomField(),
     );
   }
 }

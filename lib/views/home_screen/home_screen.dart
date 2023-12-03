@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:machine_test/models/user_model.dart';
+import 'package:machine_test/models/user_model/user_model.dart';
 import 'package:machine_test/utils/colors.dart';
-import 'package:machine_test/view_models/user_viewmodel.dart';
+import 'package:machine_test/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:machine_test/views/home_screen/widgets/action_buttons.dart';
 import 'package:machine_test/views/home_screen/widgets/user_popup.dart';
 import 'package:machine_test/views/home_screen/widgets/visitor_popup.dart';

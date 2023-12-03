@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:machine_test/models/user_model.dart';
+import 'package:machine_test/models/user_model/user_model.dart';
 import 'package:machine_test/utils/colors.dart';
-import 'package:machine_test/view_models/userdialog_viewmodel.dart';
+import 'package:machine_test/view_models/userdialog_viewmodel/userdialog_viewmodel.dart';
 
 class CustomUserDialog {
   static final UserDialogStore userDialogStore = UserDialogStore();

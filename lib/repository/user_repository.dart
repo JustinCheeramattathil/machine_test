@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:machine_test/models/user_model.dart';
+import 'package:machine_test/models/user_model/user_model.dart';
 import 'package:machine_test/utils/constants.dart';
 
 class UserRepository {

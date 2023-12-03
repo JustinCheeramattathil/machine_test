@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:machine_test/models/user_model.dart';
+import 'package:machine_test/models/user_model/user_model.dart';
 import 'package:machine_test/repository/user_repository.dart';
 import 'package:mobx/mobx.dart';
 

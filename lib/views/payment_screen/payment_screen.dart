@@ -3,7 +3,7 @@ import 'package:machine_test/utils/colors.dart';
 import 'package:machine_test/view_models/user_viewmodel/user_viewmodel.dart';
 import 'package:machine_test/views/home_screen/home_screen.dart';
 import 'package:machine_test/views/payment_screen/widgets/bottom_field.dart';
-
+//Payment screen displays added payment details
 class PaymentScreen extends StatelessWidget {
   final UserViewModel viewModel;
   const PaymentScreen({super.key, required this.viewModel});
@@ -70,7 +70,7 @@ class PaymentScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomField(),
+      bottomNavigationBar:const  BottomField(),
     );
   }
 }

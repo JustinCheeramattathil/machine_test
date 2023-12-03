@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:machine_test/utils/colors.dart';
-
+//Cupertino ios dialog for the vistor, sponsor details in the homescreen
 class CustomVisitorDialog {
   static void showDialog(BuildContext context) {
     final TextEditingController visitorcontroller = TextEditingController();

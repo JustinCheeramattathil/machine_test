@@ -11,6 +11,7 @@ import 'package:machine_test/views/home_screen/widgets/custom_navigationbar.dart
 import 'package:machine_test/views/home_screen/widgets/custom_user_card.dart';
 import 'package:machine_test/views/payment_screen/payment_screen.dart';
 
+// Home screen widget displaying user cards and action buttons
 class HomeScreen extends StatelessWidget {
   final UserViewModel viewModel;
   const HomeScreen({super.key, required this.viewModel});
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Stack(
           children: [
-            Observer(builder: (_) {
+            Observer(builder: (_) {//Used observer to handle the state when the data called from API to user cards
               return GridView.builder(
                 itemCount: viewModel.users.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -69,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  ActionButton(
+                  ActionButton(//Customised action button for popups
                     icon: const Icon(
                       Icons.people,
                       color: kwhitecolor,
@@ -77,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () => _showDialog(context),
                   ),
                   const SizedBox(height: 16),
-                  ActionButton(
+                  ActionButton( //Customised action button for Navigation to payment screen
                     icon: const Icon(
                       Icons.currency_exchange_sharp,
                       color: kwhitecolor,
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const CustomNavigationBar(),
+      bottomNavigationBar: const CustomNavigationBar(), //Customised bottom navigation bar containing 26 Alphabet cards
     );
   }
 }

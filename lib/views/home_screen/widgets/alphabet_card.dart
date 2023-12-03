@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_test/utils/colors.dart';
-
+//Customised Alphabet card for the BottomNavigation bar in the homescreen 
 class AlphabetCard extends StatefulWidget {
   final Function? onTap;
   final String text;

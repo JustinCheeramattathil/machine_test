@@ -1,5 +1,7 @@
 import 'package:hive/hive.dart';
 part 'payment_model.g.dart';
+
+//This is the model that used to make the payment from the userdialog popup in the homescreen
 @HiveType(typeId: 0)
 class PaymentModel {
   @HiveField(0)

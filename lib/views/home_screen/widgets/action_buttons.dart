@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_test/utils/colors.dart';
-
+//Customised action buttons for popups and navigation in homescreen
 class ActionButton extends StatelessWidget {
   final Icon icon;
   final Function()? onTap;
@@ -24,7 +24,6 @@ class ActionButton extends StatelessWidget {
         ),
         child: Center(
           child: icon, 
-          // Use the provided icon here
         ),
       ),
     );

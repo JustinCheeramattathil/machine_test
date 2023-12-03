@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_test/utils/colors.dart';
-
+//Customised usercard in the homescreen to fetch user data from API
 class CustomUserCard extends StatelessWidget {
   final String imageUrl;
   final String text;

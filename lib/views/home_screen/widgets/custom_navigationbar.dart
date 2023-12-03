@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_test/views/home_screen/widgets/alphabet_card.dart';
-
+//Customised BottomNavigation bar in the homescreen 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({super.key});
 

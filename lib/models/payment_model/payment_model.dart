@@ -5,13 +5,13 @@ part 'payment_model.g.dart';
 @HiveType(typeId: 0)
 class PaymentModel {
   @HiveField(0)
-  final String id;
+  final String id;//Holds the user id
   @HiveField(1)
-  final String name;
+  final String name;//Holds the user name
   @HiveField(2)
-  final String payment;
+  final String payment;//Holds the payment method
   @HiveField(3)
-  final String amount;
+  final String amount;//Holds the parment amount's value
 
   PaymentModel({
     required this.name,
